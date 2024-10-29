@@ -15,3 +15,13 @@ exports.register = async (req, res) => {
         res.status(500).json({ error: error.message })
     }
 }
+
+exports.login = async (req, res) => {
+    try {
+        const { email, password } = req.body
+        const user = await User.findOne({ email })
+
+    } catch (error) {
+        res.status(400).json({ error: error.message })        
+    }
+}
